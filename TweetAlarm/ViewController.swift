@@ -31,36 +31,61 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //load core data (or call method to create it)
-        let FetchedAlarmCoreData = alarmCoreDataManager.fetchAlarmPersistence()
+    //fetch core data
+    initialAlarmFetch()
        
-        alarmSwitch.isOn = alarm.alarmEnabled
-        alarmTime.date = alarm.alarmDate
-        alarmRepeatsSwitch.isOn = alarm.alarmRepeats
-        
+    //setup display
+    initialDisplaySetup()
         }
     
     
     
     //function is run by the viewDidLoad method the first time the app is launched. It sets up the first instance of persistance for the data stored within the alarm clock
     
-   
+    func initialAlarmFetch() {
         
-
-
+        //fetch
+        let fetchedData = alarmCoreDataManager.fetchAlarmPersistence()
+        
+        //execute
+        alarm.alarmEnabled = fetchedData.alarmEnabled
+        alarm.alarmDate = fetchedData.alarmTime!
+        alarm.alarmRepeats = fetchedData.alarmRepeats
+    }
     
+    //function is run by viewDidLoad in order to make the UI conform to the status of the Alarm object.
     
+    func initialDisplaySetup() {
+        
+        alarmSwitch.isOn = alarm.alarmEnabled
+        alarmTime.date = alarm.alarmDate
+        alarmRepeatsSwitch.isOn = alarm.alarmRepeats
+        
+    }
+
     // method handles toggling of alarm on and off, creating or removing notification
     
     @IBAction func alarmToggled(_ sender: Any) {
+     
+        //ready persistence
+        let newPersistence = alarmCoreDataManager.fetchAlarmPersistence()
+                   
         if alarmSwitch.isOn {
+            
             alarm.scheduleAlarm()
             
-        alarmCoreDataManager.fetchAlarmPersistence() as AlarmPersistence
-            
+            //update persistence
+            newPersistence.alarmEnabled = true
+            alarmCoreDataManager.updateAlarmPersistance(sent: newPersistence)
             
         } else {
+            
             alarm.descheduleAlarm()
+            
+            //update persistence
+            newPersistence.alarmEnabled = false
+            alarmCoreDataManager.updateAlarmPersistance(sent: newPersistence)
+        
         }
     }
     
@@ -68,11 +93,19 @@ class ViewController: UIViewController {
     
     @IBAction func timeChanged(_ sender: Any) {
        
+        //change time
+        alarm.alarmDate = alarmTime.date
+        
+        //resschdule notifications
         if (alarmSwitch.isOn) {
-            alarm.reschduleAlarm(newTime: alarmTime.date)
+            alarm.reschduleAlarm()
         } else {
             alarm.descheduleAlarm()
 
+        //update persistence
+         let fetchedPersistence = alarmCoreDataManager.fetchAlarmPersistence()
+            fetchedPersistence.alarmTime = alarm.alarmDate
+            alarmCoreDataManager.updateAlarmPersistance(sent: fetchedPersistence)
         }
     }
     

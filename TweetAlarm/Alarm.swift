@@ -91,9 +91,8 @@ class Alarm {
        
     // method allows users to change the time of the alarm, method is called when the time in changed in the ViewController. Must pass the new time.
     
-    func reschduleAlarm(newTime : Date) {
+    func reschduleAlarm() {
         descheduleAlarm()
-        self.alarmDate = newTime
         scheduleAlarm()
         
     }
