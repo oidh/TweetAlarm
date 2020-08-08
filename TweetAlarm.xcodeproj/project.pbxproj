@@ -14,6 +14,9 @@
 		D55DF9C524BDF502003DD748 /* TweetAlarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D55DF9C324BDF502003DD748 /* TweetAlarm.xcdatamodeld */; };
 		D55DF9C724BDF503003DD748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D55DF9C624BDF503003DD748 /* Assets.xcassets */; };
 		D55DF9CA24BDF503003DD748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55DF9C824BDF503003DD748 /* LaunchScreen.storyboard */; };
+		D55DF9D224BF39DC003DD748 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55DF9D124BF39DC003DD748 /* Alarm.swift */; };
+		D55DF9D424BF4889003DD748 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55DF9D324BF4889003DD748 /* Main.swift */; };
+		D58E6C6C24D44E8E000846F8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58E6C6B24D44E8E000846F8 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		D55DF9C624BDF503003DD748 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D55DF9C924BDF503003DD748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D55DF9CB24BDF503003DD748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D55DF9D124BF39DC003DD748 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		D55DF9D324BF4889003DD748 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		D58E6C6B24D44E8E000846F8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +64,17 @@
 		D55DF9B924BDF502003DD748 /* TweetAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				D55DF9D124BF39DC003DD748 /* Alarm.swift */,
+				D55DF9BE24BDF502003DD748 /* ViewController.swift */,
+				D58E6C6B24D44E8E000846F8 /* CoreDataManager.swift */,
+				D55DF9C324BDF502003DD748 /* TweetAlarm.xcdatamodeld */,
+				D55DF9C624BDF503003DD748 /* Assets.xcassets */,
+				D55DF9D324BF4889003DD748 /* Main.swift */,
+				D55DF9C024BDF502003DD748 /* Main.storyboard */,
+				D55DF9CB24BDF503003DD748 /* Info.plist */,
 				D55DF9BA24BDF502003DD748 /* AppDelegate.swift */,
 				D55DF9BC24BDF502003DD748 /* SceneDelegate.swift */,
-				D55DF9BE24BDF502003DD748 /* ViewController.swift */,
-				D55DF9C024BDF502003DD748 /* Main.storyboard */,
-				D55DF9C624BDF503003DD748 /* Assets.xcassets */,
 				D55DF9C824BDF503003DD748 /* LaunchScreen.storyboard */,
-				D55DF9CB24BDF503003DD748 /* Info.plist */,
-				D55DF9C324BDF502003DD748 /* TweetAlarm.xcdatamodeld */,
 			);
 			path = TweetAlarm;
 			sourceTree = "<group>";
@@ -141,8 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D55DF9D424BF4889003DD748 /* Main.swift in Sources */,
 				D55DF9BF24BDF502003DD748 /* ViewController.swift in Sources */,
+				D58E6C6C24D44E8E000846F8 /* CoreDataManager.swift in Sources */,
 				D55DF9C524BDF502003DD748 /* TweetAlarm.xcdatamodeld in Sources */,
+				D55DF9D224BF39DC003DD748 /* Alarm.swift in Sources */,
 				D55DF9BB24BDF502003DD748 /* AppDelegate.swift in Sources */,
 				D55DF9BD24BDF502003DD748 /* SceneDelegate.swift in Sources */,
 			);
@@ -295,6 +307,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mesrichards.TweetAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -313,6 +326,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mesrichards.TweetAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
