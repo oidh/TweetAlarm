@@ -30,13 +30,21 @@ public class CoreDataManager {
     
     //call fetch catching errors
         do {
-            let returnable : AlarmPersistence = try context.fetch(fetchRequest).first!
-            return returnable
+            let bigyikes : AlarmPersistence? = try context.fetch(fetchRequest)
+            
+            if (bigyikes != nil) {
+             let returnable : AlarmPersistence = bigyikes as AlarmPersistence
+                return returnable
+            }
+                
         } catch {
         print("Fetch from AlarmPersistence failed")
         }
-        let newAlarmPersistence : AlarmPersistence = createAlarmPersistence()
-        return newAlarmPersistence
+            
+       let newAlarmPersistence : AlarmPersistence = createAlarmPersistence()
+       return newAlarmPersistence
+    
+    
     }
     
     public func updateAlarmPersistance(sent : AlarmPersistence) {
