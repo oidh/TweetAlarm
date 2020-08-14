@@ -27,25 +27,23 @@ public class CoreDataManager {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = appDelegate.persistentContainer.viewContext
     let fetchRequest = NSFetchRequest<AlarmPersistence>(entityName: "AlarmPersistenceEntry")
-    
+        fetchRequest.fetchLimit = 1
+
     //call fetch catching errors
         do {
-            let bigyikes = try context.fetch(fetchRequest)
             
-            if (bigyikes != nil) {
-                
-           let first =  bigyikes.first
-            let returnable : AlarmPersistence! = first
-                return returnable
-                
-            }
-                
-        } catch {
-        print("Fetch from AlarmPersistence failed")
+            //returns an arrray
+            let fetched = try context.fetch(fetchRequest)
+            
+            //take first value from array and return
+            let returnable = fetched.first!
+            return returnable
+        
+            //fetch errors should be handled by this catch
+            } catch {
+                let newAlarmPersistence : AlarmPersistence = createAlarmPersistence()
+                 return newAlarmPersistence
         }
-    
-    let newAlarmPersistence : AlarmPersistence = createAlarmPersistence()
-    return newAlarmPersistence
     }
     
     public func updateAlarmPersistance(sent : AlarmPersistence) {

@@ -37,12 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("User has declined notifications")
             }
         }
-    
-        
-        
-        
-        
-        
         
         return true
     }

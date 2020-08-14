@@ -29,8 +29,9 @@ class ViewController: UIViewController {
     
     //viewDidLoad
     override func viewDidLoad() {
+    
         super.viewDidLoad()
-        
+                
     //fetch core data
     initialAlarmFetch()
        
