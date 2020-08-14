@@ -38,14 +38,19 @@ class ViewController: UIViewController {
     func interfaceSetup() {
         
         let alarmDate : Date = alarm.getDate()
-    
+        let alarmEnabled : Bool = alarm.getEnabled()
+        let alarmRepeats : Bool = alarm.getRepeats()
+        
         print()
         print(alarmDate.debugDescription)
+        print(alarmRepeats)
+        print(alarmEnabled)
+        print()
+        print("status of the alarm switch")
+        print(alarmSwitch.isOn)
         print()
     
-        let alarmEnabled : Bool! = alarm.getEnabled()
-        let alarmRepeats : Bool! = alarm.getRepeats()
-    
+        
         alarmTime.setDate(alarmDate, animated: false)
         alarmSwitch.setOn(alarmEnabled , animated: false)
         alarmRepeatsSwitch.setOn(alarmRepeats, animated: false)
