@@ -42,22 +42,18 @@ class ViewController: UIViewController {
         print()
         print(alarmDate.debugDescription)
         print()
-        
+    
         let alarmEnabled : Bool! = alarm.getEnabled()
         let alarmRepeats : Bool! = alarm.getRepeats()
-        
-        
-        
-        
+    
         alarmTime.setDate(alarmDate, animated: false)
-//        alarmSwitch.setOn(alarmEnabled , animated: false)
+        alarmSwitch.setOn(alarmEnabled , animated: false)
         alarmRepeatsSwitch.setOn(alarmRepeats, animated: false)
         
     }
     
     // method handles toggling of alarm on and off, creating or removing notification
     @IBAction func alarmToggled(_ sender: Any) {
-     
         if alarmSwitch.isOn {
             alarm.setEnabled(enabled: true)
             alarm.scheduleAlarm()

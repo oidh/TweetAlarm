@@ -37,7 +37,7 @@ class Alarm {
 
     init() {
                 
-    //if (defaults.object(forKey: Keys.alarmDate) == nil) {
+    if (defaults.object(forKey: Keys.alarmDate) == nil) {
     
         defaults.set(Date(), forKey: Keys.alarmDate)
         defaults.set(false , forKey: Keys.alarmEnabled)
@@ -45,7 +45,7 @@ class Alarm {
                
         print("App has been launched for the first time, fresh preferences have been generated and saved.")
             
-      // }
+       }
         
         //object setup
         self.alarmDate = defaults.object(forKey: Keys.alarmDate) as! Date
@@ -103,13 +103,16 @@ class Alarm {
             //always deschedule an alarm is scheduling an alarm
             descheduleAlarm()
         
+            
         
+            //check if you're looking at today before you bumpdays - this method does not work
             //bump days
             bumpDays()
-        
+    
            //convert to DateComponants
         
             let alarmDateComponents = dateToDateComponants(sentDate: alarmDate)
+        
         
            //create alarm trigger
            let alarmTrigger = UNCalendarNotificationTrigger(dateMatching: alarmDateComponents, repeats: alarmRepeats)
