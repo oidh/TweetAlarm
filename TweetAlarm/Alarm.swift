@@ -37,20 +37,20 @@ class Alarm {
 
     init() {
                 
-        if (defaults.object(forKey: Keys.alarmDate) != nil) {
+    //if (defaults.object(forKey: Keys.alarmDate) == nil) {
+    
         defaults.set(Date(), forKey: Keys.alarmDate)
         defaults.set(false , forKey: Keys.alarmEnabled)
         defaults.set(false, forKey: Keys.alarmEnabled)
                
         print("App has been launched for the first time, fresh preferences have been generated and saved.")
             
-        }
+      // }
         
         //object setup
         self.alarmDate = defaults.object(forKey: Keys.alarmDate) as! Date
         self.alarmEnabled = defaults.bool(forKey: Keys.alarmEnabled)
         self.alarmRepeats = defaults.bool(forKey: Keys.alarmRepeats)
-        
         
         //todo alarm content - placeholder inserted
         self.alarmContent = UNMutableNotificationContent()

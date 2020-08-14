@@ -30,15 +30,29 @@ class ViewController: UIViewController {
     //viewDidLoad
     override func viewDidLoad() {
     super.viewDidLoad()
-    initialInterfaceSetup()
+    interfaceSetup()
     
         }
     
     //method sets up the display to match the persistent Alarm data
-    func initialInterfaceSetup() {
-        alarmSwitch.setOn(alarm.alarmEnabled, animated: false)
-        alarmTime.setDate(alarm.getDate(), animated: false)
-        alarmRepeatsSwitch.setOn(alarm.getRepeats(), animated: false)
+    func interfaceSetup() {
+        
+        let alarmDate : Date = alarm.getDate()
+    
+        print()
+        print(alarmDate.debugDescription)
+        print()
+        
+        let alarmEnabled : Bool! = alarm.getEnabled()
+        let alarmRepeats : Bool! = alarm.getRepeats()
+        
+        
+        
+        
+        alarmTime.setDate(alarmDate, animated: false)
+//        alarmSwitch.setOn(alarmEnabled , animated: false)
+        alarmRepeatsSwitch.setOn(alarmRepeats, animated: false)
+        
     }
     
     // method handles toggling of alarm on and off, creating or removing notification
@@ -58,7 +72,7 @@ class ViewController: UIViewController {
     @IBAction func timeChanged(_ sender: Any) {
        
         //change time
-        alarm.alarmDate = alarmTime.date
+        alarm.setDate(date: alarmTime.date)
         
         //resschdule notifications
         if (alarmSwitch.isOn) {
