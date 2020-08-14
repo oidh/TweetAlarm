@@ -133,7 +133,6 @@
 			children = (
 				D55DF9D124BF39DC003DD748 /* Alarm.swift */,
 				D55DF9BE24BDF502003DD748 /* ViewController.swift */,
-				D58E6C6B24D44E8E000846F8 /* CoreDataManager.swift */,
 				D55DF9C324BDF502003DD748 /* TweetAlarm.xcdatamodeld */,
 				D55DF9C624BDF503003DD748 /* Assets.xcassets */,
 				D55DF9D324BF4889003DD748 /* Main.swift */,
@@ -143,6 +142,7 @@
 				D55DF9BC24BDF502003DD748 /* SceneDelegate.swift */,
 				D55DF9C824BDF503003DD748 /* LaunchScreen.storyboard */,
 				D541922B24E016BA004B31CC /* Tweeter.swift */,
+				D58E6C6B24D44E8E000846F8 /* CoreDataManager.swift */,
 			);
 			path = TweetAlarm;
 			sourceTree = "<group>";

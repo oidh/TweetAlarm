@@ -34,23 +34,30 @@ class Alarm {
     var alarmContent : UNMutableNotificationContent
     var notificationIdentifier : String = "Tomorrow's Alarm"
     
-    //first initailiser
+
     init() {
+                
+        if (defaults.object(forKey: Keys.alarmDate) != nil) {
+        defaults.set(Date(), forKey: Keys.alarmDate)
+        defaults.set(false , forKey: Keys.alarmEnabled)
+        defaults.set(false, forKey: Keys.alarmEnabled)
+               
+        print("App has been launched for the first time, fresh preferences have been generated and saved.")
+            
+        }
         
-    //recall date from UserDefaults
-    self.alarmDate = defaults.object(forKey: Keys.alarmDate) as! Date
-       
-    //recall booleans
-    self.alarmEnabled = defaults.bool(forKey: Keys.alarmDate)
-    self.alarmRepeats = defaults.bool(forKey: Keys.alarmRepeats)
+        //object setup
+        self.alarmDate = defaults.object(forKey: Keys.alarmDate) as! Date
+        self.alarmEnabled = defaults.bool(forKey: Keys.alarmEnabled)
+        self.alarmRepeats = defaults.bool(forKey: Keys.alarmRepeats)
         
-    //todo alarm content - placeholder inserted
-    self.alarmContent = UNMutableNotificationContent()
-    self.alarmContent.title = "ALARM!!"
-    self.alarmContent.body = "Don't be lazy, or else!"
-    
+        
+        //todo alarm content - placeholder inserted
+        self.alarmContent = UNMutableNotificationContent()
+        self.alarmContent.title = "ALARM!!"
+        self.alarmContent.body = "Don't be lazy, or else!"
     }
-    
+
     // setters and getters
     public func setDate(date : Date) {
         defaults.set(date, forKey: Keys.alarmDate)
@@ -92,6 +99,11 @@ class Alarm {
        
      func scheduleAlarm() {
            
+        
+            //always deschedule an alarm is scheduling an alarm
+            descheduleAlarm()
+        
+        
             //bump days
             bumpDays()
         
@@ -101,7 +113,7 @@ class Alarm {
         
            //create alarm trigger
            let alarmTrigger = UNCalendarNotificationTrigger(dateMatching: alarmDateComponents, repeats: alarmRepeats)
-           
+        
             //create notification request
            let alarmRequest = UNNotificationRequest(identifier : notificationIdentifier, content : alarmContent, trigger: alarmTrigger)
             
@@ -111,21 +123,13 @@ class Alarm {
            UNUserNotificationCenter.current().add(alarmRequest)
            
            }
-       
-    // method allows users to change the time of the alarm, method is called when the time in changed in the ViewController. Must pass the new time.
-    
-    func reschduleAlarm() {
-        descheduleAlarm()
-        scheduleAlarm()
-        
-    }
-        
+            
     // method allows user to completely deschedule the alarm, removing the notification from the pending list
     
        func descheduleAlarm() {
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
        }
-    
+
     //if the alarm is scheduled after the alloted time in the day, the alarm will sound that day. If the alarm is scheduled earlier in the day, the alarm will be scheduled for the following day. Returns the number of days by which the day date componant should be increesed.
     
     func bumpDays(){
