@@ -12,9 +12,12 @@ import Swift
 import SwifteriOS
 
 
+
 class Tweeter {
 
     init() {
+        
+
         
         self.key = "Pa4Zh0pXi2QlvmGDteDIO7gYp"
         self.secretKey = "a5USbgTHBIXojmVGhp1bNfrtXzp9PuVB1nuuLc8szOgTMxZYnw"
@@ -36,6 +39,7 @@ class Tweeter {
         
         devAccount.postTweet(status: "i made it, hans!")
         
+       
         
     }
     

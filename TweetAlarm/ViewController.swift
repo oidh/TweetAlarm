@@ -13,9 +13,13 @@ import UserNotifications
 import CoreData
 
 class ViewController: UIViewController {
+        
+    
     
     //alarm
     var alarm : Alarm = Alarm()
+    
+    
     
     //core data
     //persistance access
@@ -23,9 +27,9 @@ class ViewController: UIViewController {
     var alarmCoreDataSignature : String = "alarmCoreDataSignature"
     
     // view variables
-        @IBOutlet weak var alarmSwitch: UISwitch!
-        @IBOutlet weak var alarmTime: UIDatePicker!
-        @IBOutlet weak var alarmRepeatsSwitch: UISwitch!
+    @IBOutlet weak var alarmSwitch: UISwitch!
+    @IBOutlet weak var alarmTime: UIDatePicker!
+    @IBOutlet weak var alarmRepeatsSwitch: UISwitch!
     
     //viewDidLoad
     override func viewDidLoad() {

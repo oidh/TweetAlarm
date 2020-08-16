@@ -12,11 +12,22 @@
 import Foundation
 import UserNotifications
 import CoreData
+import SwiftDate
+
 
 class Alarm {
     
+    //demo mode
+    var demoMode : Bool = true
+    
+    
+    //tomorrow, used for notification scheduling
+
     // alarm variables - dictates the properties of the alarm set
-    var alarmDate : Date
+ 
+    var alarmHour : Int
+    var alarmMinute : Int
+
     var alarmEnabled : Bool
     var alarmRepeats : Bool
 
@@ -25,9 +36,10 @@ class Alarm {
     
     //data structure looks after persisence access
     struct Keys {
-        static let alarmDate = "alarmDate"
         static let alarmEnabled = "alarmEnabled"
         static let alarmRepeats = "alarmRepeats"
+        static let alarmHour = "alarmHour"
+        static let alarmMinute = "alarmMinute"
     }
     
     // notification content alarm variables
@@ -37,20 +49,27 @@ class Alarm {
 
     init() {
                 
-    if (defaults.object(forKey: Keys.alarmDate) == nil) {
+        if (defaults.object(forKey: Keys.alarmHour) == nil) {
     
-        defaults.set(Date(), forKey: Keys.alarmDate)
+        defaults.set(8, forKey: Keys.alarmHour)
+        defaults.set(0, forKey: Keys.alarmMinute)
+            
         defaults.set(false , forKey: Keys.alarmEnabled)
         defaults.set(false, forKey: Keys.alarmEnabled)
                
         print("App has been launched for the first time, fresh preferences have been generated and saved.")
-            
        }
-        
+                
         //object setup
-        self.alarmDate = defaults.object(forKey: Keys.alarmDate) as! Date
+     
+        self.alarmMinute = defaults.integer(forKey: Keys.alarmMinute)
+        self.alarmHour = defaults.integer(forKey: Keys.alarmHour)
+        
         self.alarmEnabled = defaults.bool(forKey: Keys.alarmEnabled)
         self.alarmRepeats = defaults.bool(forKey: Keys.alarmRepeats)
+        
+        //alarm sound
+
         
         //todo alarm content - placeholder inserted
         self.alarmContent = UNMutableNotificationContent()
@@ -59,14 +78,39 @@ class Alarm {
     }
 
     // setters and getters
+    
     public func setDate(date : Date) {
-        defaults.set(date, forKey: Keys.alarmDate)
-        self.alarmDate = date
+    
+    //strip to componants
+    let componants  = dateToDateComponants(sentDate: date)
+    
+    //parse minutes
+    self.alarmMinute = componants.minute!
+        defaults.set(alarmMinute, forKey: Keys.alarmMinute)
+        
+   //parse secconds
+    self.alarmHour = componants.hour!
+        defaults.set(alarmHour, forKey: Keys.alarmHour)
+        
     }
     
-    public func getDate() -> Date {
-        return self.alarmDate
+    public func getHour() -> Int {
+        return self.alarmHour
     }
+    
+    public func getMinute() -> Int {
+           return self.alarmMinute
+    }
+    
+    public func setHour(hour : Int) {
+        self.alarmHour = hour
+        defaults.set(hour, forKey: Keys.alarmHour)
+    }
+    
+    public func setMinute(minute : Int) {
+          self.alarmMinute = minute
+        defaults.set(minute, forKey: Keys.alarmMinute)
+      }
     
     public func setEnabled(enabled : Bool) {
         defaults.set(enabled, forKey: Keys.alarmEnabled)
@@ -86,59 +130,86 @@ class Alarm {
         return self.alarmRepeats
     }
     
+    public func getDate() -> Date{
+        
+        let date = Date()
+        print(date.debugDescription)
+        var dateComponents = dateToDateComponants(sentDate: date)
+        dateComponents.minute = alarmMinute
+        dateComponents.hour = alarmHour
+        
+        return makeDate(year: dateComponents.year!, month: dateComponents.month!, day: dateComponents.day!, hr: dateComponents.hour!, min: dateComponents.minute!)
+        
+        
+    }
+    
+    func makeDate(year: Int, month: Int, day: Int, hr: Int, min: Int) -> Date {
+        var calendar = Calendar.current
+        // calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        let components = DateComponents(year: year, month: month, day: day, hour: hr, minute: min, second: 0)
+        return calendar.date(from: components)!
+    }
+    
+    
+    
     // method converts Date objects as created by the date picker window to DateComponants objects favored by the notification schduler.
+    
     func dateToDateComponants(sentDate : Date) -> DateComponents {
             
             let calendar : Calendar = Calendar.current
-            let components = calendar.dateComponents([Calendar.Component.day, Calendar.Component.month, Calendar.Component.year], from: sentDate)
-            
+        let components = calendar.dateComponents([Calendar.Component.minute, Calendar.Component.hour, Calendar.Component.day, Calendar.Component.month, Calendar.Component.year], from: sentDate)
+        
+    
+        print()
+        print("the following describes the datecomponents")
+        print(components.description)
+        
             return components
         }
+    
+    
 
     // method schdules the notificaion that acts as the alarm clock to wake the user up in the morning. Alarm is schedules based on instance varibles at the top of the class, edited by the user via the UI.
        
      func scheduleAlarm() {
            
+        //always deschedule an alarm is scheduling an alarm
+        descheduleAlarm()
         
-            //always deschedule an alarm is scheduling an alarm
-            descheduleAlarm()
+        //generate new date
+        var newDate = Date()
         
-            
+        //advance by a day if in normal mode
         
-            //check if you're looking at today before you bumpdays - this method does not work
-            //bump days
-            bumpDays()
+        if (demoMode == false) {
+        newDate = newDate.advanced(by: 86400)
+        }
+        
+        //setup date components
+        var alarmDateComponents : DateComponents = dateToDateComponants(sentDate: newDate)
+        
+        //change hours and minutes
+        alarmDateComponents.hour = alarmHour
+        alarmDateComponents.minute = alarmMinute
     
-           //convert to DateComponants
+        //create alarm trigger
+        let alarmTrigger = UNCalendarNotificationTrigger(dateMatching: alarmDateComponents, repeats: alarmRepeats)
         
-            let alarmDateComponents = dateToDateComponants(sentDate: alarmDate)
-        
-        
-           //create alarm trigger
-           let alarmTrigger = UNCalendarNotificationTrigger(dateMatching: alarmDateComponents, repeats: alarmRepeats)
-        
-            //create notification request
-           let alarmRequest = UNNotificationRequest(identifier : notificationIdentifier, content : alarmContent, trigger: alarmTrigger)
+        //create notification request
+        let alarmRequest = UNNotificationRequest(identifier : notificationIdentifier, content : alarmContent, trigger: alarmTrigger)
             
-            //push foreward by a day if before now in time
-        
-            //create notification
-           UNUserNotificationCenter.current().add(alarmRequest)
-           
+        //create notification
+        UNUserNotificationCenter.current().add(alarmRequest)
+       
            }
             
-    // method allows user to completely deschedule the alarm, removing the notification from the pending list
+        //method allows user to completely deschedule the alarm, removing the notification from the pending list
     
        func descheduleAlarm() {
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        print("alarm notification descheduled")
        }
-
-    //if the alarm is scheduled after the alloted time in the day, the alarm will sound that day. If the alarm is scheduled earlier in the day, the alarm will be scheduled for the following day. Returns the number of days by which the day date componant should be increesed.
     
-    func bumpDays(){
-        if (alarmDate > Date()){
-            alarmDate = alarmDate + 86400 }
-    }
 }
 
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,8 @@
 		D55DF9D424BF4889003DD748 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55DF9D324BF4889003DD748 /* Main.swift */; };
 		D569174A24E44766001D180A /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D569174124E4474C001D180A /* SwifteriOS.framework */; };
 		D569174B24E44766001D180A /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D569174124E4474C001D180A /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D5789E4E24E8818B00255CE0 /* Pods_TweetAlarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5789E4D24E8818B00255CE0 /* Pods_TweetAlarm.framework */; };
+		D5789E4F24E8818B00255CE0 /* Pods_TweetAlarm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5789E4D24E8818B00255CE0 /* Pods_TweetAlarm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D58E6C6C24D44E8E000846F8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58E6C6B24D44E8E000846F8 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D5789E4F24E8818B00255CE0 /* Pods_TweetAlarm.framework in Embed Frameworks */,
 				D569174B24E44766001D180A /* SwifteriOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -75,6 +78,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		46AFDD6A500D048E29738504 /* Pods_TweetAlarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TweetAlarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6556FBFFD20C431AA342CFB8 /* Pods-TweetAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TweetAlarm.debug.xcconfig"; path = "Target Support Files/Pods-TweetAlarm/Pods-TweetAlarm.debug.xcconfig"; sourceTree = "<group>"; };
+		671FA0ED93DC8C06BF2D903E /* Pods-TweetAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TweetAlarm.release.xcconfig"; path = "Target Support Files/Pods-TweetAlarm/Pods-TweetAlarm.release.xcconfig"; sourceTree = "<group>"; };
 		D541922B24E016BA004B31CC /* Tweeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweeter.swift; sourceTree = "<group>"; };
 		D55DF9B724BDF502003DD748 /* TweetAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TweetAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D55DF9BA24BDF502003DD748 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +94,10 @@
 		D55DF9D124BF39DC003DD748 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		D55DF9D324BF4889003DD748 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		D569173824E4474C001D180A /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "../../../../../Downloads/Swifter-master/Swifter.xcodeproj"; sourceTree = "<group>"; };
+		D5789E4D24E8818B00255CE0 /* Pods_TweetAlarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TweetAlarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5789E5524E8819900255CE0 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D58E6C6B24D44E8E000846F8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		D5C3686524E8757D0074F1DB /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5789E4E24E8818B00255CE0 /* Pods_TweetAlarm.framework in Frameworks */,
 				D569174A24E44766001D180A /* SwifteriOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,10 +113,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB7F9D209D4B4B6CAF6CB3EB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6556FBFFD20C431AA342CFB8 /* Pods-TweetAlarm.debug.xcconfig */,
+				671FA0ED93DC8C06BF2D903E /* Pods-TweetAlarm.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D541928724E07796004B31CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D5789E5524E8819900255CE0 /* SwiftDate.framework */,
+				D5789E4D24E8818B00255CE0 /* Pods_TweetAlarm.framework */,
+				D5C3686524E8757D0074F1DB /* SwiftDate.framework */,
 				D569173824E4474C001D180A /* Swifter.xcodeproj */,
+				46AFDD6A500D048E29738504 /* Pods_TweetAlarm.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,6 +140,7 @@
 				D55DF9B924BDF502003DD748 /* TweetAlarm */,
 				D55DF9B824BDF502003DD748 /* Products */,
 				D541928724E07796004B31CC /* Frameworks */,
+				CB7F9D209D4B4B6CAF6CB3EB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,16 +157,16 @@
 			children = (
 				D55DF9D124BF39DC003DD748 /* Alarm.swift */,
 				D55DF9BE24BDF502003DD748 /* ViewController.swift */,
-				D55DF9C324BDF502003DD748 /* TweetAlarm.xcdatamodeld */,
+				D55DF9C024BDF502003DD748 /* Main.storyboard */,
 				D55DF9C624BDF503003DD748 /* Assets.xcassets */,
 				D55DF9D324BF4889003DD748 /* Main.swift */,
-				D55DF9C024BDF502003DD748 /* Main.storyboard */,
 				D55DF9CB24BDF503003DD748 /* Info.plist */,
 				D55DF9BA24BDF502003DD748 /* AppDelegate.swift */,
 				D55DF9BC24BDF502003DD748 /* SceneDelegate.swift */,
 				D55DF9C824BDF503003DD748 /* LaunchScreen.storyboard */,
 				D541922B24E016BA004B31CC /* Tweeter.swift */,
 				D58E6C6B24D44E8E000846F8 /* CoreDataManager.swift */,
+				D55DF9C324BDF502003DD748 /* TweetAlarm.xcdatamodeld */,
 			);
 			path = TweetAlarm;
 			sourceTree = "<group>";
@@ -166,10 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D55DF9CE24BDF503003DD748 /* Build configuration list for PBXNativeTarget "TweetAlarm" */;
 			buildPhases = (
+				3F3CB6D697E4ED686346D602 /* [CP] Check Pods Manifest.lock */,
 				D55DF9B324BDF502003DD748 /* Sources */,
 				D55DF9B424BDF502003DD748 /* Frameworks */,
 				D55DF9B524BDF502003DD748 /* Resources */,
 				D541928A24E07796004B31CC /* Embed Frameworks */,
+				F8FB43E1B48C96553791318B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -269,6 +295,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F3CB6D697E4ED686346D602 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TweetAlarm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8FB43E1B48C96553791318B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TweetAlarm/Pods-TweetAlarm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TweetAlarm/Pods-TweetAlarm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TweetAlarm/Pods-TweetAlarm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D55DF9B324BDF502003DD748 /* Sources */ = {
@@ -424,6 +492,7 @@
 		};
 		D55DF9CF24BDF503003DD748 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6556FBFFD20C431AA342CFB8 /* Pods-TweetAlarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -443,6 +512,7 @@
 		};
 		D55DF9D024BDF503003DD748 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 671FA0ED93DC8C06BF2D903E /* Pods-TweetAlarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

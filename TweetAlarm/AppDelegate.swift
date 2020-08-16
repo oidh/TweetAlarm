@@ -13,17 +13,13 @@ import UserNotifications
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         
         //set notification options
         let options : UNAuthorizationOptions = [.alert, .sound, .badge]
         
-        
         //check notification options
-        
         notificationCenter.getNotificationSettings { (settings) in
           if settings.authorizationStatus != .authorized {
             // Notifications not allowed
