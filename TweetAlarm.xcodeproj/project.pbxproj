@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D51731BA24FFFC810020A6E4 /* TweetAlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51731B224FFF6A50020A6E4 /* TweetAlarmTests.swift */; };
+		D530EA6224E9EC8800853E9F /* AlarmNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D530EA6124E9EC8800853E9F /* AlarmNotifications.swift */; };
 		D541922C24E016BA004B31CC /* Tweeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541922B24E016BA004B31CC /* Tweeter.swift */; };
 		D55DF9BB24BDF502003DD748 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55DF9BA24BDF502003DD748 /* AppDelegate.swift */; };
 		D55DF9BD24BDF502003DD748 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55DF9BC24BDF502003DD748 /* SceneDelegate.swift */; };
@@ -19,12 +21,20 @@
 		D55DF9D424BF4889003DD748 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55DF9D324BF4889003DD748 /* Main.swift */; };
 		D569174A24E44766001D180A /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D569174124E4474C001D180A /* SwifteriOS.framework */; };
 		D569174B24E44766001D180A /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D569174124E4474C001D180A /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D56B47EA24EB172300B57A9A /* SnoozeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B47E924EB172300B57A9A /* SnoozeView.swift */; };
 		D5789E4E24E8818B00255CE0 /* Pods_TweetAlarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5789E4D24E8818B00255CE0 /* Pods_TweetAlarm.framework */; };
 		D5789E4F24E8818B00255CE0 /* Pods_TweetAlarm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5789E4D24E8818B00255CE0 /* Pods_TweetAlarm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D58E6C6C24D44E8E000846F8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58E6C6B24D44E8E000846F8 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D51731B524FFF6A50020A6E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D55DF9AF24BDF502003DD748 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D55DF9B624BDF502003DD748;
+			remoteInfo = TweetAlarm;
+		};
 		D569174024E4474C001D180A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D569173824E4474C001D180A /* Swifter.xcodeproj */;
@@ -81,6 +91,10 @@
 		46AFDD6A500D048E29738504 /* Pods_TweetAlarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TweetAlarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6556FBFFD20C431AA342CFB8 /* Pods-TweetAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TweetAlarm.debug.xcconfig"; path = "Target Support Files/Pods-TweetAlarm/Pods-TweetAlarm.debug.xcconfig"; sourceTree = "<group>"; };
 		671FA0ED93DC8C06BF2D903E /* Pods-TweetAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TweetAlarm.release.xcconfig"; path = "Target Support Files/Pods-TweetAlarm/Pods-TweetAlarm.release.xcconfig"; sourceTree = "<group>"; };
+		D51731B024FFF6A50020A6E4 /* TweetAlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TweetAlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D51731B224FFF6A50020A6E4 /* TweetAlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetAlarmTests.swift; sourceTree = "<group>"; };
+		D51731B424FFF6A50020A6E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D530EA6124E9EC8800853E9F /* AlarmNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNotifications.swift; sourceTree = "<group>"; };
 		D541922B24E016BA004B31CC /* Tweeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweeter.swift; sourceTree = "<group>"; };
 		D55DF9B724BDF502003DD748 /* TweetAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TweetAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D55DF9BA24BDF502003DD748 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +108,7 @@
 		D55DF9D124BF39DC003DD748 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		D55DF9D324BF4889003DD748 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		D569173824E4474C001D180A /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "../../../../../Downloads/Swifter-master/Swifter.xcodeproj"; sourceTree = "<group>"; };
+		D56B47E924EB172300B57A9A /* SnoozeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnoozeView.swift; sourceTree = "<group>"; };
 		D5789E4D24E8818B00255CE0 /* Pods_TweetAlarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TweetAlarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5789E5524E8819900255CE0 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D58E6C6B24D44E8E000846F8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -101,6 +116,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D51731AD24FFF6A50020A6E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D55DF9B424BDF502003DD748 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -122,6 +144,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D51731B124FFF6A50020A6E4 /* TweetAlarmTests */ = {
+			isa = PBXGroup;
+			children = (
+				D51731B224FFF6A50020A6E4 /* TweetAlarmTests.swift */,
+				D51731B424FFF6A50020A6E4 /* Info.plist */,
+			);
+			path = TweetAlarmTests;
+			sourceTree = "<group>";
+		};
 		D541928724E07796004B31CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				D55DF9B924BDF502003DD748 /* TweetAlarm */,
+				D51731B124FFF6A50020A6E4 /* TweetAlarmTests */,
 				D55DF9B824BDF502003DD748 /* Products */,
 				D541928724E07796004B31CC /* Frameworks */,
 				CB7F9D209D4B4B6CAF6CB3EB /* Pods */,
@@ -148,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				D55DF9B724BDF502003DD748 /* TweetAlarm.app */,
+				D51731B024FFF6A50020A6E4 /* TweetAlarmTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,15 +189,17 @@
 			isa = PBXGroup;
 			children = (
 				D55DF9D124BF39DC003DD748 /* Alarm.swift */,
+				D530EA6124E9EC8800853E9F /* AlarmNotifications.swift */,
+				D541922B24E016BA004B31CC /* Tweeter.swift */,
 				D55DF9BE24BDF502003DD748 /* ViewController.swift */,
 				D55DF9C024BDF502003DD748 /* Main.storyboard */,
+				D56B47E924EB172300B57A9A /* SnoozeView.swift */,
 				D55DF9C624BDF503003DD748 /* Assets.xcassets */,
 				D55DF9D324BF4889003DD748 /* Main.swift */,
 				D55DF9CB24BDF503003DD748 /* Info.plist */,
 				D55DF9BA24BDF502003DD748 /* AppDelegate.swift */,
 				D55DF9BC24BDF502003DD748 /* SceneDelegate.swift */,
 				D55DF9C824BDF503003DD748 /* LaunchScreen.storyboard */,
-				D541922B24E016BA004B31CC /* Tweeter.swift */,
 				D58E6C6B24D44E8E000846F8 /* CoreDataManager.swift */,
 				D55DF9C324BDF502003DD748 /* TweetAlarm.xcdatamodeld */,
 			);
@@ -186,6 +221,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D51731AF24FFF6A50020A6E4 /* TweetAlarmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D51731B724FFF6A50020A6E4 /* Build configuration list for PBXNativeTarget "TweetAlarmTests" */;
+			buildPhases = (
+				D51731AC24FFF6A50020A6E4 /* Sources */,
+				D51731AD24FFF6A50020A6E4 /* Frameworks */,
+				D51731AE24FFF6A50020A6E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D51731B624FFF6A50020A6E4 /* PBXTargetDependency */,
+			);
+			name = TweetAlarmTests;
+			productName = TweetAlarmTests;
+			productReference = D51731B024FFF6A50020A6E4 /* TweetAlarmTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D55DF9B624BDF502003DD748 /* TweetAlarm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D55DF9CE24BDF503003DD748 /* Build configuration list for PBXNativeTarget "TweetAlarm" */;
@@ -212,10 +265,14 @@
 		D55DF9AF24BDF502003DD748 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Oliver James Richards";
 				TargetAttributes = {
+					D51731AF24FFF6A50020A6E4 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = D55DF9B624BDF502003DD748;
+					};
 					D55DF9B624BDF502003DD748 = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -241,6 +298,7 @@
 			projectRoot = "";
 			targets = (
 				D55DF9B624BDF502003DD748 /* TweetAlarm */,
+				D51731AF24FFF6A50020A6E4 /* TweetAlarmTests */,
 			);
 		};
 /* End PBXProject section */
@@ -284,6 +342,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D51731AE24FFF6A50020A6E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D55DF9B524BDF502003DD748 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,10 +404,20 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D51731AC24FFF6A50020A6E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D51731BA24FFFC810020A6E4 /* TweetAlarmTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D55DF9B324BDF502003DD748 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D56B47EA24EB172300B57A9A /* SnoozeView.swift in Sources */,
+				D530EA6224E9EC8800853E9F /* AlarmNotifications.swift in Sources */,
 				D541922C24E016BA004B31CC /* Tweeter.swift in Sources */,
 				D55DF9D424BF4889003DD748 /* Main.swift in Sources */,
 				D55DF9BF24BDF502003DD748 /* ViewController.swift in Sources */,
@@ -355,6 +430,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D51731B624FFF6A50020A6E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D55DF9B624BDF502003DD748 /* TweetAlarm */;
+			targetProxy = D51731B524FFF6A50020A6E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D55DF9C024BDF502003DD748 /* Main.storyboard */ = {
@@ -376,6 +459,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D51731B824FFF6A50020A6E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7GQZG5YLGU;
+				INFOPLIST_FILE = TweetAlarmTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mesrichards.TweetAlarmTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TweetAlarm.app/TweetAlarm";
+			};
+			name = Debug;
+		};
+		D51731B924FFF6A50020A6E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7GQZG5YLGU;
+				INFOPLIST_FILE = TweetAlarmTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mesrichards.TweetAlarmTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TweetAlarm.app/TweetAlarm";
+			};
+			name = Release;
+		};
 		D55DF9CC24BDF503003DD748 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -533,6 +658,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D51731B724FFF6A50020A6E4 /* Build configuration list for PBXNativeTarget "TweetAlarmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D51731B824FFF6A50020A6E4 /* Debug */,
+				D51731B924FFF6A50020A6E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D55DF9B224BDF502003DD748 /* Build configuration list for PBXProject "TweetAlarm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

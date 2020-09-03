@@ -18,10 +18,11 @@ import SwiftDate
 class Alarm {
     
     //demo mode
-    var demoMode : Bool = true
+    var demoMode : Bool
     
+    //notification manager
     
-    //tomorrow, used for notification scheduling
+    var alarmNotifications : AlarmNotifications = AlarmNotifications()
 
     // alarm variables - dictates the properties of the alarm set
  
@@ -29,7 +30,6 @@ class Alarm {
     var alarmMinute : Int
 
     var alarmEnabled : Bool
-    var alarmRepeats : Bool
 
     //alarm uses UserDeafaults to implement persistence of these properties
     let defaults = UserDefaults.standard
@@ -40,12 +40,8 @@ class Alarm {
         static let alarmRepeats = "alarmRepeats"
         static let alarmHour = "alarmHour"
         static let alarmMinute = "alarmMinute"
+        static let demoMode = "demoDate"
     }
-    
-    // notification content alarm variables
-    var alarmContent : UNMutableNotificationContent
-    var notificationIdentifier : String = "Tomorrow's Alarm"
-    
 
     init() {
                 
@@ -56,6 +52,8 @@ class Alarm {
             
         defaults.set(false , forKey: Keys.alarmEnabled)
         defaults.set(false, forKey: Keys.alarmEnabled)
+            
+        defaults.set(false, forKey: Keys.demoMode)
                
         print("App has been launched for the first time, fresh preferences have been generated and saved.")
        }
@@ -66,19 +64,31 @@ class Alarm {
         self.alarmHour = defaults.integer(forKey: Keys.alarmHour)
         
         self.alarmEnabled = defaults.bool(forKey: Keys.alarmEnabled)
-        self.alarmRepeats = defaults.bool(forKey: Keys.alarmRepeats)
         
         //alarm sound
-
-        
-        //todo alarm content - placeholder inserted
-        self.alarmContent = UNMutableNotificationContent()
-        self.alarmContent.title = "ALARM!!"
-        self.alarmContent.body = "Don't be lazy, or else!"
+        self.demoMode = defaults.bool(forKey: Keys.demoMode)
     }
-
-    // setters and getters
     
+    // setters and getters
+
+    public func setDemo(demo : Bool) {
+        self.demoMode = demo
+        defaults.set(demo, forKey: Keys.demoMode)
+       
+        if (demo == true) {
+            print("demo mode is enabled")
+        } else {
+            print("demo mode is disabled")
+        }
+        
+        scheduleAlarm()
+        
+    }
+    
+    public func getDemo() -> Bool {
+        return self.demoMode
+      }
+
     public func setDate(date : Date) {
     
     //strip to componants
@@ -121,15 +131,6 @@ class Alarm {
         return self.alarmEnabled
     }
     
-    public func setRepeats(repeats : Bool) {
-        defaults.set(repeats, forKey: Keys.alarmRepeats)
-        self.alarmRepeats = repeats
-    }
-    
-    public func getRepeats() -> Bool {
-        return self.alarmRepeats
-    }
-    
     public func getDate() -> Date{
         
         let date = Date()
@@ -144,7 +145,7 @@ class Alarm {
     }
     
     func makeDate(year: Int, month: Int, day: Int, hr: Int, min: Int) -> Date {
-        var calendar = Calendar.current
+        let calendar = Calendar.current
         // calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         let components = DateComponents(year: year, month: month, day: day, hour: hr, minute: min, second: 0)
         return calendar.date(from: components)!
@@ -192,26 +193,21 @@ class Alarm {
         alarmDateComponents.hour = alarmHour
         alarmDateComponents.minute = alarmMinute
     
-        //create alarm trigger
-        let alarmTrigger = UNCalendarNotificationTrigger(dateMatching: alarmDateComponents, repeats: alarmRepeats)
-        
-        //create notification request
-        let alarmRequest = UNNotificationRequest(identifier : notificationIdentifier, content : alarmContent, trigger: alarmTrigger)
-            
         //create notification
-        UNUserNotificationCenter.current().add(alarmRequest)
-       
+        alarmNotifications.scheduleNotification(alarmDateComponents: alarmDateComponents)
            }
             
         //method allows user to completely deschedule the alarm, removing the notification from the pending list
     
        func descheduleAlarm() {
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        print("alarm notification descheduled")
-       }
+    alarmNotifications.deschduleAlarm()
+}
+    
+    func snooze() {
+        alarmNotifications.snooze(demo: demoMode)
+    }
     
 }
-
 
 
 
